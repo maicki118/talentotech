@@ -111,20 +111,10 @@ main {
     padding-bottom: 80px;
     margin-left: 300px;
     margin-right: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
-    "item1 item1 item1"
-    "item2 item3 item4"
-    "item5 item5 item5";
-    grid-auto-rows: auto;
-
+    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    grid-auto-rows: min-content;
 }
 
-.item:nth-child(1){grid-area: item1; }
-.item:nth-child(2){grid-area: item2; }
-.item:nth-child(3){grid-area: item3; }
-.item:nth-child(4){grid-area: item4; }
-.item:nth-child(5){grid-area: item5; }
 
 .footer {
     background-color: rgba(68, 68, 68, 0.7);
@@ -161,26 +151,57 @@ main {
 }
 
 @media (max-width: 768px) {
-    .layout-grid{
-        grid-template-columns: 1fr;
-        height: max-content;
+    p {
+        font-size: 1.1em;
     }
 
-    .sidebar{
-        visibility: hidden;
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+    
+    .layout-grid{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header"
+        "sidebar"
+        "portfolio"
+        "footer";
+        height: auto;
+        grid-auto-rows: auto;
+    }
+
+    header {
+        position: relative;
+        grid-area: header;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: fit-content;
+        padding: 8px;
+        grid-area: sidebar;
+        z-index: 1;
+    }
+
+    .sidebar ul li {
+        font-size: 1.1em;
     }
 
     .portfolio{
         margin-left: 20px;
         padding-bottom: 40px;
         grid-template-columns: 1fr;
-        grid-template-areas:
-        "item1"
-        "item2"
-        "item3"
-        "item4"
-        "item5"
-        "footer";
+        grid-area: portfolio;
+    }
+
+    .footer {
+        position: relative;
+        grid-area: footer;
     }
 }
 

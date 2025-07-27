@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eee;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    margin: 20px;
+    margin: 20px auto;
+}
+
+#outputbox {
+    padding: 20px;
+    font-weight: bolder;
+}
